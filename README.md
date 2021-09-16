@@ -1,6 +1,6 @@
 # Contenido del sitio para desarrolladores de Mercado Pago
 
-En este repositorio esta alojado el contenido mostrado en nuestro sitio para desarrolladores, las contribuciones son bienvenidas
+En este repositorio esta alojado el contenido mostrado en nuestro sitio para desarrolladores, las contribuciones son bienvenidas.
 
 [![argentina-flag](images/flags/argentina.svg)](https://www.mercadopago.com.ar/developers)
 [![brazil-flag](images/flags/brazil.svg)](https://www.mercadopago.com.br/developers)

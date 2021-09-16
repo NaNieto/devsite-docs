@@ -26,11 +26,11 @@ curl -X POST \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/config' \
+    'https://api.mercadopago.com/v1/account/release_report/config' \
     -d '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -64,9 +64,9 @@ $headers = array(
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
 $data = '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -89,10 +89,10 @@ $data = '{
                 }
             ]
     }';
-$response = Requests::post('https://api.mercadopago.com/v1/account/bank_report/config', $headers, $data);
+$response = Requests::post('https://api.mercadopago.com/v1/account/release_report/config', $headers, $data);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/config");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/config");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -104,9 +104,9 @@ connection.setRequestProperty("Authorization", "Bearer ENV_ACCESS_TOKEN");
 connection.setDoOutput(true);
 
 String body = "{
-                \\"file_name_prefix\\": \\"bank-report-USER_ID\\",
-                \\"include_withdrawal_at_end\\": false,
-                \\"execute_after_withdrawal\\": true,
+                \\"file_name_prefix\\": \\"release-report-USER_ID\\",
+                \\"include_withdrawal_at_end\\": true,
+                \\"execute_after_withdrawal\\": false,
                 \\"display_timezone\\": \\"GMT-04\\",
                 \\"notification_email_list\\": [
                     \\"example@email.com\\",
@@ -143,9 +143,9 @@ headers = {
 }
 
 data = '{  
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -169,7 +169,7 @@ data = '{
             ]
         }'
 
-response = requests.post('https://api.mercadopago.com/v1/account/bank_report/config', headers=headers, data=data)
+response = requests.post('https://api.mercadopago.com/v1/account/release_report/config', headers=headers, data=data)
 ```
 ```node
 var request = require('request');
@@ -181,9 +181,9 @@ var headers = {
 };
 
 var dataString = '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -208,7 +208,7 @@ var dataString = '{
     }';
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/config',
+    url: 'https://api.mercadopago.com/v1/account/release_report/config',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -228,10 +228,10 @@ Como resposta, você receberá um  `HTTP STATUS 201 (Created)`
 
 ```json
 {
-    "file_name_prefix": "bank-report-USER_ID",
-    "include_withdrawal_at_end": false,
+    "file_name_prefix": "release-report-USER_ID",
+    "include_withdrawal_at_end": true,
     "scheduled": false,
-    "execute_after_withdrawal": true,
+    "execute_after_withdrawal": false,
     "separator": ",",
     "display_timezone": "GMT-04",
     "notification_email_list": [
@@ -267,7 +267,7 @@ curl -X GET \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/config' \
+    'https://api.mercadopago.com/v1/account/release_report/config' \
 ```
 ```php
 <?php
@@ -278,10 +278,10 @@ $headers = array(
     'content-type' => 'application/json',
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
-$response = Requests::get('https://api.mercadopago.com/v1/account/bank_report/config', $headers);
+$response = Requests::get('https://api.mercadopago.com/v1/account/release_report/config', $headers);
 ```
 ```java
- URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/config");
+ URL url = new URL("https://api.mercadopago.com/v1/account/release_report/config");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -302,7 +302,7 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.get('https://api.mercadopago.com/v1/account/bank_report/config', headers=headers)
+response = requests.get('https://api.mercadopago.com/v1/account/release_report/config', headers=headers)
 ```
 ```node
 var request = require('request');
@@ -314,7 +314,7 @@ var headers = {
 };
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/config',
+    url: 'https://api.mercadopago.com/v1/account/release_report/config',
     headers: headers
 };
 function callback(error, response, body) {
@@ -330,10 +330,10 @@ Como resposta, você receberá um `HTTP STATUS 200 (Ok)`
 
 ```json
 {
-    "file_name_prefix": "bank-report-USER_ID",
-    "include_withdrawal_at_end": false,
+    "file_name_prefix": "release-report-USER_ID",
+    "include_withdrawal_at_end": true,
     "scheduled": false,
-    "execute_after_withdrawal": true,
+    "execute_after_withdrawal": false,
     "separator": ",",
     "display_timezone": "GMT-04",
     "frequency": {
@@ -366,11 +366,11 @@ curl -X PUT \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/config' \
+    'https://api.mercadopago.com/v1/account/release_report/config' \
     -d '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -404,9 +404,9 @@ $headers = array(
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
 $data = '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -429,10 +429,10 @@ $data = '{
                 }
             ]
     }';
-$response = Requests::put('https://api.mercadopago.com/v1/account/bank_report/config', $headers, $data);
+$response = Requests::put('https://api.mercadopago.com/v1/account/release_report/config', $headers, $data);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/config");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/config");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -444,9 +444,9 @@ connection.setRequestProperty("Authorization", "Bearer ENV_ACCESS_TOKEN");
 connection.setDoOutput(true);
 
 String body = "{
-                \\"file_name_prefix\\": \\"bank-report-USER_ID\\",
-                \\"include_withdrawal_at_end\\": false,
-                \\"execute_after_withdrawal\\": true,
+                \\"file_name_prefix\\": \\"release-report-USER_ID\\",
+                \\"include_withdrawal_at_end\\": true,
+                \\"execute_after_withdrawal\\": false,
                 \\"display_timezone\\": \\"GMT-04\\",
                 \\"notification_email_list\\": [
                     \\"example@email.com\\",
@@ -483,9 +483,9 @@ headers = {
 }
 
 data = '{  
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": false,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -509,7 +509,7 @@ data = '{
             ]
         }'
 
-response = requests.put('https://api.mercadopago.com/v1/account/bank_report/config', headers=headers, data=data)
+response = requests.put('https://api.mercadopago.com/v1/account/release_report/config', headers=headers, data=data)
 ```
 ```node
 var request = require('request');
@@ -521,9 +521,9 @@ var headers = {
 };
 
 var dataString = '{
-            "file_name_prefix": "bank-report-USER_ID",
-            "include_withdrawal_at_end": false,
-            "execute_after_withdrawal": true,
+            "file_name_prefix": "release-report-USER_ID",
+            "include_withdrawal_at_end": true,
+            "execute_after_withdrawal": falsre,
             "display_timezone": "GMT-04",
             "notification_email_list": [
                 "example@email.com",
@@ -548,7 +548,7 @@ var dataString = '{
     }';
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/config',
+    url: 'https://api.mercadopago.com/v1/account/release_report/config',
     method: 'PUT',
     headers: headers,
     body: dataString
@@ -569,10 +569,10 @@ Como resposta, você receberá um `HTTP STATUS 200 (Ok)`
 
 ```json
 {
-    "file_name_prefix": "bank-report-USER_ID",
-    "include_withdrawal_at_end": false,
+    "file_name_prefix": "release-report-USER_ID",
+    "include_withdrawal_at_end": triue,
     "scheduled": false,
-    "execute_after_withdrawal": true,
+    "execute_after_withdrawal": false,
     "separator": ",",
     "display_timezone": "GMT-04",
     "notification_email_list": [
@@ -639,7 +639,7 @@ curl -X POST \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report' \
+    'https://api.mercadopago.com/v1/account/release_report' \
     -d '{
             "begin_date": "2019-05-01T00:00:00Z",
             "end_date": "2019-06-01T00:00:00Z"
@@ -659,10 +659,10 @@ $data ='{
             "end_date": "2019-06-01T00:00:00Z"
     }';
 
-$response = Requests::post("https://api.mercadopago.com/v1/account/bank_report", $headers, $data);
+$response = Requests::post("https://api.mercadopago.com/v1/account/release_report", $headers, $data);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -694,7 +694,7 @@ headers = {
 
 data = '{ "begin_date": "2019-05-01T00:00:00Z", "end_date": "2019-06-01T00:00:00Z" }'
 
-response = requests.post('https://api.mercadopago.com/v1/account/bank_report', headers=headers, data=data)
+response = requests.post('https://api.mercadopago.com/v1/account/release_report', headers=headers, data=data)
 ```
 ```node
 var request = require('request');
@@ -708,7 +708,7 @@ var headers = {
 var dataString = '{ "begin_date": "2019-05-01T00:00:00Z", "end_date": "2019-06-01T00:00:00Z" }';
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report',
+    url: 'https://api.mercadopago.com/v1/account/release_report',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -733,7 +733,7 @@ Para ver se a geração de relatórios está pronta, consulte a API desta forma:
 curl -G \
     -H 'accept: application/json' \
     -d 'access_token=ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/list'
+    'https://api.mercadopago.com/v1/account/release_report/list'
 ```
 ```php
 <?php
@@ -745,10 +745,10 @@ $headers = array(
 $data = array(
     'access_token' => 'ENV_ACCESS_TOKEN'
 );
-$response = Requests::post('https://api.mercadopago.com/v1/account/bank_report/list', $headers, $data);
+$response = Requests::post('https://api.mercadopago.com/v1/account/release_report/list', $headers, $data);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/list");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/list");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -767,14 +767,14 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.post('https://api.mercadopago.com/v1/account/bank_report/list', headers=headers)
+response = requests.post('https://api.mercadopago.com/v1/account/release_report/list', headers=headers)
 ```
 ```node
 var request = require('request');
 var headers = { 'accept': 'application/json'};
 var dataString = 'access_token=ENV_ACCESS_TOKEN';
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/list',
+    url: 'https://api.mercadopago.com/v1/account/release_report/list',
     method: 'POST',
     headers: headers,
     body: dataString
@@ -797,7 +797,7 @@ Como resposta, você receberá um `HTTP STATUS 200 (Ok)`
         "user_id": USER-ID,
         "begin_date": "2015-05-01T00:00:00Z",
         "end_date": "2015-06-01T23:59:59Z",
-        "file_name": "bank-report-USER_ID-2016-01-20-131015.csv",
+        "file_name": "release-report-USER_ID-2016-01-20-131015.csv",
         "created_from": "manual",
         "date_created": "2016-01-20T10:07:53.000-04:00"
     },
@@ -815,7 +815,7 @@ Usando o atributo `file_name`, você pode baixar o relatório na seguinte URL:
 ```curl
 curl -X GET \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/:file_name'
+    'https://api.mercadopago.com/v1/account/release_report/:file_name'
 ```
 ```php
 <?php
@@ -827,10 +827,10 @@ $headers = array(
 $data = array(
     'access_token' => 'ENV_ACCESS_TOKEN'
 );
-$response = Requests::post('https://api.mercadopago.com/v1/account/bank_report/:file_name', $headers, $data);
+$response = Requests::post('https://api.mercadopago.com/v1/account/release_report/:file_name', $headers, $data);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/:file_name");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/:file_name");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -848,7 +848,7 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.get('https://api.mercadopago.com/v1/account/bank_report/:file_name', headers=headers)
+response = requests.get('https://api.mercadopago.com/v1/account/release_report/:file_name', headers=headers)
 ```
 ```node
 var request = require('request');
@@ -859,7 +859,7 @@ var headers = {
 
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/:file_name',
+    url: 'https://api.mercadopago.com/v1/account/release_report/:file_name',
     headers: headers,
 };
 
@@ -901,7 +901,7 @@ curl -X POST \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/schedule'
+    'https://api.mercadopago.com/v1/account/release_report/schedule'
 ```
 ```php
 <?php
@@ -912,10 +912,10 @@ $headers = array(
     'content-type' => 'application/json',
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
-$response = Requests::post('https://api.mercadopago.com/v1/account/bank_report/schedule', $headers);
+$response = Requests::post('https://api.mercadopago.com/v1/account/release_report/schedule', $headers);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/schedule");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/schedule");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -937,7 +937,7 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.post('https://api.mercadopago.com/v1/account/bank_report/schedule', headers=headers)
+response = requests.post('https://api.mercadopago.com/v1/account/release_report/schedule', headers=headers)
 ```
 ```node
 var request = require('request');
@@ -949,7 +949,7 @@ var headers = {
 };
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/schedule',
+    url: 'https://api.mercadopago.com/v1/account/release_report/schedule',
     method: 'POST',
     headers: headers
 };
@@ -974,7 +974,7 @@ Como resposta, você receberá um `HTTP STATUS 200 (Ok)`
     "end_date": "2019-08-01T05:59:59Z",
     "created_from": "schedule",
     "status": "pending",
-    "report_type": "bank",
+    "report_type": "release",
     "generation_date": "2019-08-01T06:00:00.000Z",
     "last_modified": "2019-07-24T13:45:33.479-04:00",
     "retries": 0
@@ -992,7 +992,7 @@ curl -X DELETE \
     -H 'accept: application/json' \
     -H 'content-type: application/json' \
     -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/schedule'
+    'https://api.mercadopago.com/v1/account/release_report/schedule'
 ```
 
 ```php
@@ -1004,10 +1004,10 @@ $headers = array(
     'content-type' => 'application/json',    
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
-$response = Requests::delete('https://api.mercadopago.com/v1/account/bank_report/schedule', $headers);
+$response = Requests::delete('https://api.mercadopago.com/v1/account/release_report/schedule', $headers);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/schedule");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/schedule");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -1029,7 +1029,7 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.delete('https://api.mercadopago.com/v1/account/bank_report/schedule', headers=headers)
+response = requests.delete('https://api.mercadopago.com/v1/account/release_report/schedule', headers=headers)
 ```
 ```node
 var request = require('request');
@@ -1041,7 +1041,7 @@ var headers = {
 };
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/schedule',
+    url: 'https://api.mercadopago.com/v1/account/release_report/schedule',
     method: 'DELETE',
     headers: headers
 };
@@ -1066,7 +1066,7 @@ Recibirás como respuesta un `HTTP STATUS 200 (Ok)`
     "end_date": "2019-08-16T05:59:59Z",
     "generation_date": "2019-08-16T02:00:00.000-04:00",
     "last_modified": "2019-08-15T15:41:53.681-04:00",
-    "report_type": "bank",
+    "report_type": "release",
     "retries": 0,
     "status": "deleted",
     "user_id": USER_ID
@@ -1082,7 +1082,7 @@ Baixe o arquivo com este comando:
 ```curl
 curl -X GET \
 -H 'Authorization: Bearer ENV_ACCESS_TOKEN' \
-    'https://api.mercadopago.com/v1/account/bank_report/:file_name'
+    'https://api.mercadopago.com/v1/account/release_report/:file_name'
 ```
 ```php
 <?php
@@ -1091,10 +1091,10 @@ Requests::register_autoloader();
 $headers = array(
     'Authorization' => 'Bearer ENV_ACCESS_TOKEN'
 );
-$response = Requests::get('https://api.mercadopago.com/v1/account/bank_report/:file_name', $headers);
+$response = Requests::get('https://api.mercadopago.com/v1/account/release_report/:file_name', $headers);
 ```
 ```java
-URL url = new URL("https://api.mercadopago.com/v1/account/bank_report/:file_name");
+URL url = new URL("https://api.mercadopago.com/v1/account/release_report/:file_name");
 
 HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
 
@@ -1112,7 +1112,7 @@ headers = {
     'Authorization': 'Bearer ENV_ACCESS_TOKEN'
 }
 
-response = requests.get('https://api.mercadopago.com/v1/account/bank_report/:file_name', headers=headers)
+response = requests.get('https://api.mercadopago.com/v1/account/release_report/:file_name', headers=headers)
 ```
 ```node
 var request = require('request');
@@ -1122,7 +1122,7 @@ var headers = {
 };
 
 var options = {
-    url: 'https://api.mercadopago.com/v1/account/bank_report/:file_name',
+    url: 'https://api.mercadopago.com/v1/account/release_report/:file_name',
     headers: headers
 };
 
@@ -1152,7 +1152,7 @@ DATE,SOURCE_ID,EXTERNAL_REFERENCE,RECORD_TYPE,DESCRIPTION,NET_CREDIT_AMOUNT,NET_
 >
 > Esta documentação corresponde à nova versão da API
 >
-> Para consultar a versão anterior, por favor, acesse a [seção Geração por API antiga](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/available-money/v1/api).
+> Para consultar a versão anterior, por favor, acesse a [seção Geração por API antiga](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/released-money/v1/api).
 
 <hr/>
 
@@ -1164,12 +1164,12 @@ DATE,SOURCE_ID,EXTERNAL_REFERENCE,RECORD_TYPE,DESCRIPTION,NET_CREDIT_AMOUNT,NET_
 >
 > Gere seus relatórios de Dinheiro Disponível a partir do painel do Mercado Pago em 3 etapas simples.
 >
-> [Geração a partir do Mercado Pago](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/available-money/panel)
+> [Geração a partir do Mercado Pago](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/released-money/panel)
 
 > RIGHT_BUTTON_RECOMMENDED_PT
 >
-> Geração por retirada
+> Geração por api
 >
 > Gere um relatório a cada vez que retirar dinheiro para uma conta bancária.
 >
-> [Geração por retirada](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/available-money/withdrawal)
+> [Geração por retirada](https://www.mercadopago[FAKER][URL][DOMAIN]/developers/pt/guides/manage-account/reports/released-money/withdrawal)
